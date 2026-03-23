@@ -9,7 +9,7 @@ import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
-import migrate as m
+import manus_to_supabase.migrate as m
 
 
 # ---------------------------------------------------------------------------
