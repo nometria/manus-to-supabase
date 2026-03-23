@@ -1,0 +1,10 @@
+usage: manus-to-supabase [-h] [--test] [target_dir]
+
+Migrate Manus project to Supabase auth + PostgreSQL
+
+positional arguments:
+  target_dir  Target project root (default: cwd)
+
+options:
+  -h, --help  show this help message and exit
+  --test      Run transform on oma_scripts/schema-test.ts → schema-test-out.ts

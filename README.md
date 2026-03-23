@@ -6,6 +6,37 @@ Built for developers who generated a project on Manus and want to self-host it w
 
 ---
 
+## Quick start
+
+```bash
+# Clone and install (zero runtime deps — pure stdlib)
+git clone https://github.com/ownmy-app/manus-to-supabase
+cd manus-to-supabase
+pip install -e .
+
+# Run in your Manus project directory
+manus-to-supabase /path/to/your/manus-project
+
+# Or run in current directory
+cd /path/to/manus-project
+manus-to-supabase
+
+# After migration: set env vars and install
+cat >> .env << 'EOF'
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=eyJ...
+SUPABASE_JWT_SECRET=your-jwt-secret
+DATABASE_URL=postgresql://user:pass@host:5432/db
+EOF
+npm install
+npm run dev
+
+# Run tests
+pytest tests/ -v
+```
+
+---
+
 ## What it does
 
 Applies these changes to your Manus project automatically:
@@ -70,3 +101,33 @@ npm run dev
 ## Zero dependencies
 
 The migration script uses only Python stdlib. No pip install required beyond the package itself.
+
+---
+
+## Example output
+
+Running `pytest tests/ -v`:
+
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.13.9, pytest-9.0.2, pluggy-1.5.0
+cachedir: .pytest_cache
+rootdir: /tmp/ownmy-releases/manus-to-supabase
+configfile: pyproject.toml
+plugins: anyio-4.12.1, cov-7.1.0
+collecting ... collected 9 items
+
+tests/test_migrate.py::test_patch_package_json_adds_supabase_deps PASSED [ 11%]
+tests/test_migrate.py::test_patch_package_json_removes_mysql2 PASSED     [ 22%]
+tests/test_migrate.py::test_patch_package_json_idempotent PASSED         [ 33%]
+tests/test_migrate.py::test_patch_package_json_skips_missing PASSED      [ 44%]
+tests/test_migrate.py::test_collect_env_vars_finds_process_env PASSED    [ 55%]
+tests/test_migrate.py::test_collect_env_vars_finds_import_meta_env PASSED [ 66%]
+tests/test_migrate.py::test_collect_env_vars_skips_node_modules PASSED   [ 77%]
+tests/test_migrate.py::test_patch_env_ts_adds_supabase_vars PASSED       [ 88%]
+tests/test_migrate.py::test_patch_env_ts_idempotent PASSED               [100%]
+
+============================== 9 passed in 0.03s ===============================
+```
+
+See `examples/sample-manus-app/` for the typical Manus project structure before migration.

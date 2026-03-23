@@ -10,7 +10,7 @@ readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
 keywords = ["manus", "supabase", "postgres", "migration", "auth", "drizzle"]
-dependencies = []  # zero runtime deps — pure stdlib
+dependencies = []
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "pytest-cov"]
@@ -18,12 +18,12 @@ dev = ["pytest>=8.0", "pytest-cov"]
 [project.scripts]
 manus-to-supabase = "manus_to_supabase.migrate:main"
 
-[tool.hatch.build.targets.wheel.sources]
-"src" = "manus_to_supabase"
-
 [tool.hatch.build.targets.wheel]
-# Include the reference/ directory in the installed package
-artifacts = ["../reference/**"]
+packages = ["manus_to_supabase"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["src"]
+
+[project.urls]
+Repository = "https://github.com/ownmy-app/manus-to-supabase"

@@ -1,0 +1,19 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.9, pytest-9.0.2, pluggy-1.5.0 -- /Users/architsharma/miniconda3/bin/python3.13
+cachedir: .pytest_cache
+rootdir: /private/tmp/ownmy-releases/manus-to-supabase
+configfile: pyproject.toml
+plugins: anyio-4.12.1, cov-7.1.0
+collecting ... collected 9 items
+
+tests/test_migrate.py::test_patch_package_json_adds_supabase_deps PASSED [ 11%]
+tests/test_migrate.py::test_patch_package_json_removes_mysql2 PASSED     [ 22%]
+tests/test_migrate.py::test_patch_package_json_idempotent PASSED         [ 33%]
+tests/test_migrate.py::test_patch_package_json_skips_missing PASSED      [ 44%]
+tests/test_migrate.py::test_collect_env_vars_finds_process_env PASSED    [ 55%]
+tests/test_migrate.py::test_collect_env_vars_finds_import_meta_env PASSED [ 66%]
+tests/test_migrate.py::test_collect_env_vars_skips_node_modules PASSED   [ 77%]
+tests/test_migrate.py::test_patch_env_ts_adds_supabase_vars PASSED       [ 88%]
+tests/test_migrate.py::test_patch_env_ts_idempotent PASSED               [100%]
+
+============================== 9 passed in 0.03s ===============================
