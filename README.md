@@ -10,7 +10,7 @@ Built for developers who generated a project on Manus and want to self-host it w
 
 ```bash
 # Clone and install (zero runtime deps — pure stdlib)
-git clone https://github.com/ownmy-app/manus-to-supabase
+git clone https://github.com/nometria/manus-to-supabase
 cd manus-to-supabase
 pip install -e .
 
