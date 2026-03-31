@@ -1,16 +1,6 @@
 # manus-to-supabase
 
-<div align="center">
-
-**[Nometria](https://nometria.com)** takes AI-built apps to production on AWS — secure, scalable, ready for real users.
-
-<sub><i>Manus AI apps run on MySQL. Our customers wanted Supabase (Postgres). This one-command migration tool handles the conversion automatically.</i></sub>
-
-[![Deploy with Nometria](https://img.shields.io/badge/Deploy%20with-Nometria-111827?style=for-the-badge)](https://nometria.com)
-
-</div>
-
----
+Built by the [Nometria](https://nometria.com) team — we take AI-built apps to production.
 
 > One-command migration for [Manus AI](https://manus.im) projects: swap MySQL→PostgreSQL, add Supabase auth, wire everything up.
 
@@ -144,6 +134,3 @@ tests/test_migrate.py::test_patch_env_ts_idempotent PASSED               [100%]
 
 See `examples/sample-manus-app/` for the typical Manus project structure before migration.
 
----
-
-<p align="center">Made with ❤️ by <a href="https://nometria.com">Nometria</a> — deploy AI apps to production in one click</p>
